@@ -1,5 +1,5 @@
 import React from 'react';
-import { PersonAddOutline, CarOutline, PersonOutline, ChatbubbleEllipsesOutline, CardOutline, TimeOutline, FlashOutline } from 'react-ionicons';
+import { PersonAddOutline, CarOutline, PersonOutline, ChatbubbleEllipsesOutline, CardOutline, TimeOutline } from 'react-ionicons';
 import './Blog.css';
 
 const Blog = () => {
