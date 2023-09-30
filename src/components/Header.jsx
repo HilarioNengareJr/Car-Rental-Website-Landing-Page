@@ -38,7 +38,7 @@ const Header = () => {
                 <div className="header-actions">
 
                     <div className="header-contact">
-                        <a href="tel:88002345678" className="contact-link">8 800 234 56 78</a>
+                        <a href="tel:05338502322" className="contact-link">+90-533-850-2322</a>
 
                         <span className="contact-time">Mon - Sat: 9:00 am - 6:00 pm</span>
                     </div>

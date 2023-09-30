@@ -15,9 +15,7 @@ const Footer = () => {
                         </a>
 
                         <p className="footer-text">
-                            Search for cheap rental cars in Harare. With a diverse fleet of 19,000 vehicles, Waydex offers its
-                            consumers an
-                            attractive and fun selection.
+                            
                         </p>
                     </div>
 
