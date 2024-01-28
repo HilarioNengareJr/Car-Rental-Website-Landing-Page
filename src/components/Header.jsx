@@ -1,10 +1,33 @@
-import React from 'react';
-import { CarOutline, PersonOutline} from 'react-ionicons';
+import React, {useState, useEffect} from 'react';
+import { CarOutline, PersonOutline } from 'react-ionicons';
 import './Header.css';
 
 const Header = () => {
+    const [isActive, setIsActive] = useState(false);
+
+    const [isHeaderActive, setIsHeaderActive] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setIsHeaderActive(true);
+            } else {
+                setIsHeaderActive(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const toggleNavbar = () => {
+        setIsActive(!isActive);
+    };
     return (
-        <header className="header" data-header="">
+        <header className={ isHeaderActive ? "header active" : "header"}>
             <div className="container">
 
                 <div className="overlay" data-overlay=""></div>
@@ -13,23 +36,23 @@ const Header = () => {
                     <img src="/images/logo.png" alt="logo" width={70} />
                 </a>
 
-                <nav className="navbar" data-navbar="">
+                <nav className={isActive ? "navbar active" : "navbar"}>
                     <ul className="navbar-list">
 
                         <li>
-                            <a href="#home" className="navbar-link" data-nav-link="">Home</a>
+                            <a href="#home" className="navbar-link" onClick={toggleNavbar}>Home</a>
                         </li>
 
                         <li>
-                            <a href="#featured-car" className="navbar-link" data-nav-link="">Explore cars</a>
+                            <a href="#featured-car" className="navbar-link" onClick={toggleNavbar}>Explore cars</a>
                         </li>
 
                         <li>
-                            <a href="#" className="navbar-link" data-nav-link="">About us</a>
+                            <a href="#" className="navbar-link" onClick={toggleNavbar}>About us</a>
                         </li>
 
                         <li>
-                            <a href="#blog" className="navbar-link" data-nav-link="">Blog</a>
+                            <a href="#blog" className="navbar-link" onClick={toggleNavbar}>Blog</a>
                         </li>
 
                     </ul>
@@ -51,9 +74,6 @@ const Header = () => {
                             width="22px"
                             role="img" className="md hydrated" aria-label="car outline"
                         />
-
-
-                        <span id="aria-label-txt">Explore cars</span>
                     </a>
 
                     <a href="#" className="btn user-btn" aria-label="Profile">
@@ -65,7 +85,8 @@ const Header = () => {
                         />
                     </a>
 
-                    <button className="nav-toggle-btn" data-nav-toggle-btn="" aria-label="Toggle Menu">
+                    <button className={isActive ? "nav-toggle-btn active" : "nav-toggle-btn"} onClick={toggleNavbar}
+                     aria-label="Toggle Menu">
                         <span className="one"></span>
                         <span className="two"></span>
                         <span className="three"></span>
